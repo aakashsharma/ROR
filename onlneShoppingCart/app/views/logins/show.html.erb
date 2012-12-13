@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @login.name %>
+</p>
+
+<p>
+  <b>Mail:</b>
+  <%= @login.mail %>
+</p>
+
+<p>
+  <b>Contactno:</b>
+  <%= @login.contactno %>
+</p>
+
+
+<%= link_to 'Edit', edit_login_path(@login) %> |
+<%= link_to 'Back', logins_path %>
+<%= link_to 'Place Order', new_place_order_path%>

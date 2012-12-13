@@ -1,0 +1,25 @@
+<%= form_for(@place_order) do |f| %>
+  <% if @place_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@place_order.errors.count, "error") %> prohibited this place_order from being saved:</h2>
+
+      <ul>
+      <% @place_order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :item %><br />
+    <%= f.text_field :item %>
+  </div>
+  <div class="field">
+    <%= f.label :mail %><br />
+    <%= f.text_field :mail %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
