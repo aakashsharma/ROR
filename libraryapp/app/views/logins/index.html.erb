@@ -1,0 +1,38 @@
+<h1>Listing logins</h1>
+
+
+<% if user_signed_in? %>
+                <li><%= current_user.email %></li>
+                <li><%= link_to "Emails", "/emails"  %></li>              
+                <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete  %></li>
+              <% else %>
+                <li><%= link_to "Log In", new_user_session_path  %></li>
+                <li><%= link_to "Register",  new_user_registration_path  %></li>
+              <% end %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Login</th>
+    <th>Password</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @logins.each do |login| %>
+  <tr>
+    <td><%= login.name %></td>
+    <td><%= login.login %></td>
+    <td><%= login.password %></td>
+    <td><%= link_to 'Show', login %></td>
+    <td><%= link_to 'Edit', edit_login_path(login) %></td>
+    <td><%= link_to 'Destroy', login, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Login', new_login_path %>

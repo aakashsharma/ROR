@@ -1,11 +1,10 @@
-OnlneShoppingCart::Application.routes.draw do
-  
+Libraryapp::Application.routes.draw do
+ # devise_for :views
+
   resources :logins
-  resources :place_orders
 
 
-  
-
+  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -57,7 +56,6 @@ OnlneShoppingCart::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
    root :to => 'logins#index'
-   root :to => 'place_orders#new'
 
   # See how all your routes lay out with "rake routes"
 

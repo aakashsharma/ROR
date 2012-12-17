@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  item: MyString
+  numberofitems: MyString
+  post: 
+
+two:
+  item: MyString
+  numberofitems: MyString
+  post: 

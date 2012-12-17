@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @post.name %>
+</p>
+
+<p>
+  <b>Mail:</b>
+  <%= @post.mail %>
+</p>
+
+<p>
+  <b>Contactno:</b>
+  <%= @post.contactno %>
+</p>
+
+
+
+<h2>Orders</h2>
+ <% @post.orders.each do |order| %>
+ <p>     
+ <b>Commenter:</b>
+ <%= order.item %>
+ </p> 
+ <p>
+ <b>Comment:</b>
+ <%= order.numberofitems %>  </p> <% end %>
+
+<h2>place an order:</h2> 
+<%= form_for([@post, @post.orders.build]) do |f| %>
+  <div class="field">
+  <%= f.label :item %><br />
+  <%= f.text_field :item %>
+  </div>   
+  <div class="field">
+  <%= f.label :numberofitems %><br />
+  <%= f.text_field:numberofitems %>
+  </div>   <div class="actions">
+  <%= f.submit %> 
+  </div>
+  <% end %>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

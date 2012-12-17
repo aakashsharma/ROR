@@ -1,11 +1,10 @@
-OnlneShoppingCart::Application.routes.draw do
-  
-  resources :logins
-  resources :place_orders
+Shoppingwebbasic::Application.routes.draw do
+  resources :posts do
+  resources :orders
+  end
 
 
-  
-
+  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -56,8 +55,8 @@ OnlneShoppingCart::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => 'logins#index'
-   root :to => 'place_orders#new'
+   root :to => 'home#index'
+  # root :to => 'orders#index'
 
   # See how all your routes lay out with "rake routes"
 
