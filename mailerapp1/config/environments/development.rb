@@ -40,12 +40,14 @@ config.action_mailer.raise_delivery_errors = true
 
 
 config.action_mailer.default_url_options = { :host => 'localhost:3000' }
-config.action_mailer.default :charset => "utf-8"
-config.action_mailer.default :mime_version => "1.0"
-config.action_mailer.default :implicit_parts_order => [ "text/html", "text/plain"]
-config.action_mailer.smtp_settings = {
-  :address => "mailhub.mckinsey.com",
-  :domain =>  "mailhub.mckinsey.com",
-  :port => 25
+config.action_mailer.smtp_settings =  {
+  :enable_starttls_auto => true,
+  :address        => 'smtp.gmail.com',
+  :port           => 587,
+  :domain         => 'your.domain.com',
+  :authentication => :login,
+  :content_type   => "text/html",
+  :user_name      => 'ruby.12ab@gmail.com',
+  :password       => 'ruby12ab'
 }
 end
