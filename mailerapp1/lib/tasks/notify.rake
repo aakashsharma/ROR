@@ -1,7 +1,7 @@
 namespace :notify do
   desc "This is to notify people about Birthday"
   task(:birthday_users => :environment) do
-    
+    if Time.now.hour % 1 == 0
     birthday = []
     User.all.each do |user|
 
@@ -14,5 +14,5 @@ namespace :notify do
 
     UserMailer.send_email(birthday.join(' & ')).deliver!
                                          end
-
+end
                     end
