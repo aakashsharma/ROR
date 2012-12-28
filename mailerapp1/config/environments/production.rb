@@ -64,4 +64,20 @@ Mailerapp::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+  config.action_mailer.delivery_method = :smtp
+config.action_mailer.raise_delivery_errors = true
+config.action_mailer.perform_deliveries = true
+
+
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.smtp_settings =  {
+  :enable_starttls_auto => true,
+  :address        => 'smtp.gmail.com',
+  :port           => 587,
+  :domain         => 'your.domain.com',
+  :authentication => :login,
+  :content_type   => "text/html",
+  :user_name      => 'ruby.12ab@gmail.com',
+  :password       => 'ruby12ab'
+}
 end

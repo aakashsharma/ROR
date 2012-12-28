@@ -1,30 +1,33 @@
-<h1 align = 'center'>Friends Detail</h1>
+<h1 class="text-warning" align = 'center'>Friends Detail</h1>
 
-<table style="border:1px solid black;" align='center'>
-  <tr style="border:1px solid blue;">
-    <th width='100' bgcolor='red'>Name</th>
-    <th width='200' bgcolor='red'>Email</th>
-    <th width='100' bgcolor='red'>Dateofbirth</th>
-    <th width='100' bgcolor='red'>Group</th>
+<table class="table table-condensed table-bordered " >
+  <thead>
+  <tr class = "error" >
+   <strong> <th >Name</th> </strong>
+    <th >Email</th>
+    <th >Dateofbirth</th>
+    <th >Group</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+</thead>
 <% @users.each do |user| %>
-  <tr style="border:1px solid blue;">
-    <td align = 'center' ><%= user.name %></td>
-    <td align = 'center'><%= user.email %></td>
-    <td align = 'center'><%= user.DateofBirth %></td>
-    <td  align = 'center'><%= user.group %></td>
+  <tr class = "success">
+    <td  ><%= user.name %></td>
+    <td ><%= user.email %></td>
+    <td ><%= user.DateofBirth %></td>
+    <td  ><%= user.group %></td>
     <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if admin_signed_in? && current_admin.email == "admin@admin.com" %>    
+      <td><%= link_to 'Edit', edit_user_path(user) %></td>
+      <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-<div align='center'>
+<div >
 <%= link_to 'New User' , new_user_path %>
 </div>
