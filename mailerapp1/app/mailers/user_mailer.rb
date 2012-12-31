@@ -5,14 +5,12 @@ class UserMailer < ActionMailer::Base
   		#@user = user
   		  @birthday  =  birthday_emails
 
-
+attachments.inline['happybirthday.png'] = File.read('app/assets/images/happybirthday.png')
         mail(:from => "organizers@birthdaywishes.com",
      		 :to => User.pluck(:email),
-             :subject => "Happy B'day Reminder",
-
+             :subject => "Happy B'day Reminder")
              
-             :body => File.read("app/assets/images/birthday.jpg"))
-             
+                               
              
 
 
