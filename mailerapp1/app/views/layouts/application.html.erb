@@ -38,7 +38,9 @@
   <h1>Mail Friends on their b'day ! </h1>
   <p>Send emails at a set time. Useful to remind yourself or others of birthdays.</p>
   <p>Completely registration-free</p>
+  <% if !admin_signed_in? %>
   <%= link_to 'Register Now', new_admin_registration_path, class: "btn btn-success" %>
+  <% end %>
 </div>
 
 

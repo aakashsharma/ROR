@@ -3,7 +3,7 @@ require 'rake'
 require 'rufus/scheduler'
 scheduler = Rufus::Scheduler.start_new
 
-# Send the digest every day at noon
+# Send the mail in every 10 mins
  
 scheduler.every '10m' do
 	

@@ -1,9 +1,11 @@
 namespace :notify do
   desc "This is to notify people about Birthday"
   task(:birthday_users => :environment) do
-   # if Time.now.hour % 5 == 0
+    #if Time.now.hour % 1 == 0
     birthday = []
+    
     User.all.each do |user|
+    
 
       if Date.today.month == user.DateofBirth.month && Date.today.day == user.DateofBirth.day
 	#user.dob (logic to match if today is user' budaay)
@@ -16,4 +18,4 @@ namespace :notify do
       end
                                          end
 
-                    end
+                   end

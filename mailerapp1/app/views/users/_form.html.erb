@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :DateofBirth %><br />
-    <%= f.date_select :DateofBirth %>
+    <%= f.date_select :DateofBirth, {:start_year => Time.now.year - 35} %>
   </div>
   <div class="field">
     <%= f.label :group %><br />
