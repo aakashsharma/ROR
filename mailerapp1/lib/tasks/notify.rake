@@ -3,14 +3,21 @@ namespace :notify do
   task(:birthday_users => :environment) do
     #if Time.now.hour % 1 == 0
     birthday = []
-    
+   # tcsids = []
+    #appdevids = []
     User.all.each do |user|
-    
+      
+     # if User.group == 'tcs'
+       #tcsids << user.email
+      #else 
+       # appdevids << user.email
+      # end
+       
 
       if Date.today.month == user.DateofBirth.month && Date.today.day == user.DateofBirth.day
 	#user.dob (logic to match if today is user' budaay)
       birthday << user.name
-   
+      
       end #if loop end
                   end #do loop end          
       if birthday.length > 0

@@ -1,12 +1,13 @@
-<strong><%= link_to "Home", root_path, :class => 'brand' %></strong>
-<ul class="nav">
-   <div id="admin_nav">
-    <% if admin_signed_in? %>
-      Signed in as <%= current_admin.email %>. Not you?
-      <li class="text-warning"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></li>
-     <% else %>
-      <li class="text-warning"> <%= link_to "Sign up", new_admin_registration_path %> or <%= link_to "sign in", new_admin_session_path %></li>
-    <% end %>
-   </div>
+<li><i class="icon-home icon-grey"></i>
+	<strong><%= link_to "Home", root_path %></strong></li>
+<ul class="nav nav-list">
+<div id="admin_nav">
+  <% if admin_signed_in? %>
+ Signed in as <%= current_admin.email %>. Not you?
+    <li class="text-warning"><%= link_to "Sign out", destroy_admin_session_path, :method => :delete %></li>
+  <% else %>
+ <li class="text-warning"> <%= link_to "Sign up", new_admin_registration_path %> or <%= link_to "sign in", new_admin_session_path %></li>
+  <% end %>
+</div>
 </ul>
 <li><a href="https://github.com/aakashsharma/ROR/tree/master/mailerapp1">Code on github</a></li>  

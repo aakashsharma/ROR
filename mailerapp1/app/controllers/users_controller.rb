@@ -4,8 +4,9 @@ class UsersController < ApplicationController
  
 before_filter :authenticate_admin!, :except => [:show, :index]
   def index
-    @users = User.all
 
+    @users = User.all
+@users = User.order("id asc").page( params[:page]).per(4)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -15,6 +16,7 @@ before_filter :authenticate_admin!, :except => [:show, :index]
   # GET /users/1
   # GET /users/1.json
   def show
+
     @user = User.find(params[:id])
 
     respond_to do |format|
