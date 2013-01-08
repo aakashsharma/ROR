@@ -1,32 +1,44 @@
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
   
-        def send_email(birthday_emails)
+    def send_email(birthday_emails)
   		#@user = user
   		  @birthday  =  birthday_emails
-#r= []
-#User.all.each do |user|
-     		 	       
- #   r << user.email
-  #  		 	 end 
-   # 		 	 end
-     		 	 
+  		  tcsids = []
+          
+			User.all.each do |user|
+                if user.group == 'tcs'
+                     tcsids << user.email 
+                end
+                          end
 
-
-        # @tcsids    =  tcsids_emails   
-
-  attachments.inline['rails.png'] = File.read('app/assets/images/rails.png')
-
+        attachments.inline['happybirthday.png'] = File.read('app/assets/images/happybirthday.png')
         mail(:from => "organizers@birthdaywishes.com",
-     		 :to => User.pluck(:email),
-
+     		 :to => ( if birthday_emails.length > 0
+                       tcsids.join(",")
+     		          end
+     		        ),  
      		 :subject => "Happy B'day Reminder")
-           # :content_type => "image/jpeg",
-      #:body => File.read("'app/assets/images/happybirthday.png'"))
-                               
-             
+    end
+        
+    def send_emailappdev(birthday1_emails)
+          @birthday1 = birthday1_emails
+          
+          appdevids = []
+			User.all.each do |user|
+                if  user.group == 'appdev'
+                	appdevids << user.email
+                end
+                          end
+
+        attachments.inline['happybirthday.png'] = File.read('app/assets/images/happybirthday.png')
+        mail(:from => "organizers@birthdaywishes.com",
+     		 :to => ( if birthday1_emails.length > 0
+     		           appdevids.join(",")
+     		          end
+     		        ),  
+     		 :subject => "Happy B'day Reminder")
 
 
-             
-        end
+    end   
 end
