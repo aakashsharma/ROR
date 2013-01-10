@@ -3,35 +3,27 @@ namespace :notify do
   task(:birthday_users => :environment) do
     # if Time.now.hour % 1 == 0
     birthday = []
-    birthday1 = []
+    email_id = []
     
-    User.all.each do |user|
-     
+    groups = User.all.collect(&:group).uniq # ['tcs', 'appdev']
+      groups.each do |group| 
+          users = User.get_group_users("#{group}")
+             email_id << users.pluck(:email)
+               users.each do |user|
+         
+                  if Date.today.month == user.DateofBirth.month && Date.today.day == user.DateofBirth.day
+                     birthday << user.name    
+                       if birthday.length > 0
+                          UserMailer.send_email(birthday.uniq.join(' & '), email_id).deliver!
+                       end
+                  end
+                         end
+                   birthday.clear      
+                   email_id.clear      
+                  end      
+                
 
-
-
-      
-      if Date.today.month == user.DateofBirth.month && Date.today.day == user.DateofBirth.day && user.group == 'tcs'
-	#user.dob (logic to match if today is user' budaay)
-      birthday << user.name
-
-         if birthday.length > 0
-             UserMailer.send_email(birthday.join(' & ')).deliver!
-         end
-
-      elsif Date.today.month == user.DateofBirth.month && Date.today.day == user.DateofBirth.day && user.group == 'appdev'
-      birthday1 << user.name
-      
-         if birthday1.length > 0
-             UserMailer.send_emailappdev(birthday1.join(' & ')).deliver!       
-         end
-                  
-      end
-    #if loop end
-                  end #do loop end          
- #     if birthday.length > 0
-  #  UserMailer.send_email(birthday.join(' & ')).deliver!
- #     end
+    
                                          end
 
                   end

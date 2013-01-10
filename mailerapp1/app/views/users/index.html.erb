@@ -1,7 +1,7 @@
-<%= paginate @users %>
+<%= paginate @users %> 
 <h1 class="text-warning" align = 'center'>Friends Detail</h1>
 
-<table class="table table-condensed table-bordered " >
+<table class="table table-condensed table-bordered table-hover table-striped" >
   <thead>
   <tr class = "error" >
    <strong> <th >Name</th> </strong>
@@ -14,7 +14,7 @@
   </tr>
 </thead>
 <% @users.each do |user| %>
-  <tr class = "success">
+  <tr >
     <td  ><%= user.name %></td>
     <td ><%= user.email %></td>
     <td ><%= user.DateofBirth %></td>
