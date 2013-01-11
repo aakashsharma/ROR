@@ -5,7 +5,7 @@ scheduler = Rufus::Scheduler.start_new
 
 # Send the digest every day at noon
  
-scheduler.every '2h' do
+scheduler.every '1m' do
 	
 	system 'bundle exec rake notify:birthday_users'
 	 

@@ -7,7 +7,7 @@ namespace :notify do
     
     groups = User.all.collect(&:group).uniq # ['tcs', 'appdev']
       groups.each do |group| 
-          users = User.get_group_users("#{group}")
+          users = User.get_group_users(group)
              email_id << users.pluck(:email)
                users.each do |user|
          

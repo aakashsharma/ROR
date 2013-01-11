@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -11,6 +11,7 @@ gem 'bootstrap-sass-rails'
 gem 'rufus-scheduler'
 gem 'clockwork'
 gem 'kaminari'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -28,6 +29,7 @@ gem 'jquery-rails'
 
 group :test, :development do  
 	gem "rspec-rails", "~> 2.4"
+	gem 'factory_girl_rails'
 end
 
 
