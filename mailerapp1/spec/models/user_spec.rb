@@ -39,10 +39,11 @@ describe User do
       user.group.should_not be("tcs" || "appdev")
       end 
     
-     it 'validates uniqueness of email id' do
-      user= User.new(:name=>"Aakash", :email=>"aakashsharma", :group=>"xyz", :DateofBirth => "2013-01-10")
-      user.
-      should validate_uniqueness_of(:title) 
-  end
+     #it 'validates email id pattern' do
+      #user= User.new(:name=>"Aakash", :email=>"aakashsharma", :group=>"xyz", :DateofBirth => "2013-01-10")
+      #user.should_not allow_value("a@b.com").for(:email)
+  #  end
 
+
+  end
 end
