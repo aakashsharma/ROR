@@ -1,14 +1,7 @@
-namespace :notify do
-  desc "This is to notify people about Birthday"
-  task(:birthday_users => :environment) do
-    Logic.birthday_user()
-  end
-end
+class Logic
 
-
-    # if Time.now.hour % 1 == 0
-=begin 
-   birthday = []
+def self.birthday_user
+    birthday = []
     email_id = []
     
     groups = User.all.collect(&:group).uniq # ['tcs', 'appdev']
@@ -29,8 +22,5 @@ end
                   end      
                 
 
-    
-                                         end
-
-                  end
-=end                  
+end
+end
