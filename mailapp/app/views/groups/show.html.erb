@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Group name:</b>
+  <%= @group.group_name %>
+</p>
+<h2>Add a friend</h2>
+<%= render "friends/form" %>
+
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
